@@ -1,0 +1,61 @@
+#  to create api, rest api 
+# python -m venv venv
+
+# django-admin startproject sannux
+# python manage.py runserver
+# python manage.py startapp base
+#################
+
+
+###########################
+
+#page create steps
+
+1. in setting 'base.apps.BaseConfig' in installed app
+2. in url ; def home(request):
+    return HttpResponse('Home Page')
+
+def room(request):
+    return HttpResponse('Room')
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('',home),
+    path('room/',room)
+]
+
+3. to match base app urls to main one:
+from django.urls import path,include
+
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('',include('base.urls'))
+]
+
+
+################################
+
+
+for templetes
+
+# EMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [
+            BASE_DIR / 'templetes'],
+        'APP_DIRS': True,
+        'OPTIONS': {
+
+##############################
+
+1. creating templates for app and main global templetes
+2. creating dynamic url 
+
+###################################
+
+Database &&  admin panel 
+
+
+# building Database - python manage.py migrate
+# running Database - python manage.py runserver
